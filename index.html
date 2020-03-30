@@ -1,0 +1,306 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+
+    <title>reveal.js</title>
+
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/reveal.css" rel="stylesheet">
+    <link href="css/theme/black.css" rel="stylesheet">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link href="lib/css/monokai.css" rel="stylesheet">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+        <section>
+            <h1>OutToGether</h1>
+            <h3>Projet Fil Rouge</h3>
+            <p>
+                <small>de Vincent Roger et Jean-Marc Noël</small>
+            </p>
+            <script async type="text/javascript"
+                    src="//cdn.carbonads.com/carbon.js?serve=CKYI553M&placement=revealjscom"
+                    id="_carbonads_js"></script>
+        </section>
+
+        <section>
+            <h2>Plan</h2>
+            <ol>
+                <li>Besoins</li>
+                <li>Architecture</li>
+                <li>Démo</li>
+                <li>Présentation UI</li>
+                <li>Présentation back</li>
+                <li>un truc en anglais</li>
+                <li>Conclusion</li>
+            </ol>
+
+        </section>
+
+        <section>
+            <section>
+                <h2>Besoins</h2>
+                <p>
+                    une accroche ? </p>
+            </section>
+            <section>
+                <h2>Big idea</h2>
+                <p></p>
+            </section>
+            <section>
+                <h2>Synthesis</h2>
+                <p></p>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Architecture</h2>
+            </section>
+            <section>
+                <h2>Client /Serveur</h2>
+                <p></p>
+            </section>
+            <section>
+                <h2>API Rest</h2>
+                <p></p>
+            </section>
+            <section>
+                <h2>SPA</h2>
+                <p></p>
+            </section>
+        </section>
+
+        <section>
+            <h2>Démo</h2>
+        </section>
+
+
+
+        <section>
+            <section>
+                <h2>Présentation UI</h2>
+                <p>   <a href="#" class="navigate-down">
+                    <img width="919" height="500" data-src="images/profil.png" alt="Down arrow">
+                </a></p>
+            </section>
+            <section>
+                <h2>Composant personnalisé de pagination</h2>
+                <p></p>
+            </section>
+            <section>
+                <h2>Interception des erreurs</h2>
+                <p></p>
+            </section>
+            <section>
+                <h2>Intégration de bootstrap
+                </h2>
+                <p></p>
+            </section>
+
+        </section>
+
+        <section>
+            <section>
+                <h2>Présentation back</h2>
+                <p></p>
+            </section>
+            <section>
+                <h2>Plugin</h2>
+                <ul>
+					<li><a href="https://projectlombok.org/">Lombok</a></li>
+                    <li><a href="https://mapstruct.org/">Map Struct</a></li>
+                    <li><a href="https://swagger.io/">Swagger</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Truc dans le code</h2>
+                <ul>
+                    <li>DTO vs Model
+					</li>
+                    <li>Spécifications JPA</li>
+                    <li>@Scheduled</li>
+                </ul>
+             </section>
+            <section>
+                <h3>DTO vs Model</h3>
+            </section>
+        </section>
+
+		<section>
+			<h2>un truc en anglais</h2>
+			<p></p>
+		</section>
+
+		<section>
+			<h2>Conclusion</h2>
+			<p></p>
+		</section>
+
+	</div>
+
+</div>
+
+<script src="js/reveal.js"></script>
+
+<script>
+
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {
+                src: 'plugin/markdown/marked.js', condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            },
+            {
+                src: 'plugin/markdown/markdown.js', condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            },
+            {src: 'plugin/highlight/highlight.js', async: true},
+            {src: 'plugin/search/search.js', async: true},
+            {src: 'plugin/zoom-js/zoom.js', async: true},
+            {src: 'plugin/notes/notes.js', async: true}
+        ]
+    });
+
+</script>
+
+<!-- Everything below this point is only used for the reveal.js demo page -->
+
+<header class="reveal-header">
+    <a class="reveal-header-button" href="https://github.com/hakimel/reveal.js">Lien de la prés <em>GitHub</em></a>
+ </header>
+
+<style>
+    .reveal-header {
+        display: block;
+        position: absolute;
+        top: 12px;
+        right: 16px;
+        z-index: 20;
+        color: #fff;
+        font-family: "Source Sans Pro", Helvetica, sans-serif;
+        font-size: 14px;
+        letter-spacing: 0.05em;
+    }
+
+    .reveal-header-button {
+        display: inline-block;
+        padding: 14px 10px;
+        color: rgba(255, 255, 255, 0.7);
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 500;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .reveal-header-button em {
+        color: #fff;
+    }
+
+    .reveal-header-button:hover {
+        color: #fff;
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    .reveal-header-button + .reveal-header-button {
+        margin-left: 10px;
+    }
+
+    @media screen and (max-width: 500px) {
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .reveal-header {
+            display: flex;
+            position: initial;
+            background: rgba(0, 0, 0, 0.2);
+            align-items: center;
+            justify-content: flex-end;
+            font-size: 13px;
+            font-size: min(3.8vw, 14px);
+            align-items: center;
+            width: 100%;
+        }
+
+        .reveal-header-button {
+            flex-grow: 1;
+            margin: 0;
+            padding-left: 4px;
+            padding-right: 4px;
+            text-transform: none;
+        }
+
+        .reveal-header-delimiter {
+            display: none;
+        }
+    }
+
+    /* Advertising */
+    #carbonads {
+        width: 370px;
+        min-height: 100px;
+        font-size: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 10px;
+        margin: 40px auto 0 auto;
+        font-size: 16px;
+        z-index: 10;
+        text-align: left;
+    }
+
+    #carbonads .carbon-img img {
+        float: left;
+        margin: 0 10px 0 0;
+        border: 0;
+        box-shadow: none;
+    }
+
+    #carbonads .carbon-poweredby {
+        display: block;
+        margin-top: 10px;
+        color: #aaa;
+    }
+</style>
+
+<script>
+    var _gaq = [['_setAccount', 'UA-15240703-1'], ['_trackPageview']];
+    (function (d, t) {
+        var g = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        g.async = true;
+        g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g, s);
+    })(document, 'script');
+</script>
+
+</body>
+</html>
