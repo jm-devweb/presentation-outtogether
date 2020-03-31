@@ -66,14 +66,15 @@
             <section>
                 <h2>La grande idée</h2>
                 <img src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif"><br/>
-                Offrir un service qui permette à ses membres de se rassembler autour d’événements festifs et/ou culturels.
+                Offrir un service qui permette à ses membres de se rassembler autour d’événements festifs et/ou
+                culturels.
             </section>
-            
+
             <section>
                 <h2>La question essentielle</h2>
                 Comment organiser des sorties entre gens bienveillants?
             </section>
-        
+
             <section>
                 <h2>La Challenge et les questions</h2>
                 Organiser ou participer à des événements avec des personnes partageant mes centres d'intérêts!
@@ -121,7 +122,7 @@
 
                     Deux use cases principaux ont été retenus :
                     - La gestion des membres inscrits
-                    - La gestion des sorties à venir
+                    - La gestion des sorties
 
                 </textarea>
             </section>
@@ -140,7 +141,7 @@
 
             <section data-markdown>
                 <textarea data-template>
-                    ### Les User Stories : Sorties à venir
+                    ### Les User Stories : Sorties
 
                     - Rechercher une sortie
                     - Consulter la fiche détaillée d'une sortie
@@ -190,19 +191,76 @@
             <h2>Démo</h2>
         </section>
 
-
-
         <section>
             <section>
                 <h2>Présentation UI</h2>
-                <p>   <a href="#" class="navigate-down">
+                <p><a href="#" class="navigate-down">
                     <img width="919" height="500" data-src="images/profil.png" alt="Down arrow">
                 </a></p>
             </section>
             <section>
-                <h2>Composant personnalisé de pagination</h2>
+                <h2>Composant personnalisé de pagination</h2><img width="657" height="183"
+                                                                  data-src="images/paginator.png" alt="Down arrow">
                 <p></p>
+
             </section>
+            <section>
+                <h2>Structure </h2>
+                <p>
+                <pre><code class="hljs" data-trim data-line-numbers="4,8-9">
+ // Pager
+  pager: {
+    active: boolean,
+    first: number,
+    prev: number,
+    next: number,
+    last: number,
+    currentPage: number,
+    pages: number,
+    rows: number,
+    offset: number,
+    lastOffset: number,
+    size: number,
+    views: number[],
+    displayedPage: string,
+    sort: {
+      criteria: string,
+      direction: string
+    }
+  };					</code></pre>
+                </p>
+
+            </section>
+<section>
+            <h2>Gestion de l'événement OnChange </h2>
+            <p>
+            <pre><code class="hljs" data-trim data-line-numbers="4,8-9">
+  /**
+   * Get pager changes from tge parent component
+   *
+   * @param change
+   */
+  ngOnChanges(change: SimpleChange) {
+    // Get changes
+    let currentPager: PagerParams;
+
+    currentPager = {
+      currentPage : change['pagerParams'].currentValue.currentPage,
+      totalPages : change['pagerParams'].currentValue.totalPages,
+      pageTotalElements : change['pagerParams'].currentValue.pageTotalElements,
+      totalElements : change['pagerParams'].currentValue.totalElements,
+      size : change['pagerParams'].currentValue.size
+    }
+
+    // Report new values in the pager
+    this.refreshPaginator(currentPager.currentPage, currentPager.pageTotalElements, currentPager.totalPages, currentPager.totalElements, currentPager.size );
+  }
+</code></pre>
+            </p>
+
+        </section>
+
+
             <section>
                 <h2>Interception des erreurs</h2>
                 <p></p>
@@ -223,7 +281,7 @@
             <section>
                 <h2>Plugin</h2>
                 <ul>
-					<li><a href="https://projectlombok.org/">Lombok</a></li>
+                    <li><a href="https://projectlombok.org/">Lombok</a></li>
                     <li><a href="https://mapstruct.org/">Map Struct</a></li>
                     <li><a href="https://swagger.io/">Swagger</a></li>
                 </ul>
@@ -232,27 +290,27 @@
                 <h2>Truc dans le code</h2>
                 <ul>
                     <li>DTO vs Model
-					</li>
+                    </li>
                     <li>Spécifications JPA</li>
                     <li>@Scheduled</li>
                 </ul>
-             </section>
+            </section>
             <section>
                 <h3>DTO vs Model</h3>
             </section>
         </section>
 
-		<section>
-			<h2>un truc en anglais</h2>
-			<p></p>
-		</section>
+        <section>
+            <h2>un truc en anglais</h2>
+            <p></p>
+        </section>
 
-		<section>
-			<h2>Conclusion</h2>
-			<p></p>
-		</section>
+        <section>
+            <h2>Conclusion</h2>
+            <p></p>
+        </section>
 
-	</div>
+    </div>
 
 </div>
 
@@ -293,8 +351,8 @@
 <!-- Everything below this point is only used for the reveal.js demo page -->
 
 <header class="reveal-header">
-    <a class="reveal-header-button" href="https://github.com/hakimel/reveal.js">Lien de la prés <em>GitHub</em></a>
- </header>
+    <a class="reveal-header-button" href="https://github.com/jm-devweb/presentation-outtogether">Lien de la prés <em>GitHub</em></a>
+</header>
 
 <style>
     .reveal-header {
