@@ -160,15 +160,77 @@
             <section>
                 <h2>Architecture</h2>
             </section>
+
             <section>
-                <b>Vue générale</b>
+                <h6>La base de données</h6>
+                <p><br/></p>
+                <ul>
+                    <li>Exploitation : <a>PostgreSQL v12.0</a></li>
+                    <li>Tests unitaire : <a>H2 Database</a></li>
+                </ul>
+                <p></p>
+            </section>
+
+            <section>
+                <h6>Le modèle de données</h6>
+                <img src="images/schema-bd.png">
+                <table style="font-size: 20px;text-align: center;">
+                    <tr>
+                        <th>Relations</th>
+                        <th>@OneToMany</th>
+                        <th>@ManyToOne</th>
+                        <th>@ManyToMany</th>
+                    </tr>
+                    <tr>
+                        <td>User - PoI</td>
+                        <td></td>
+                        <td></td>
+                        <td style="text-align: center;">X</td>
+                    </tr>
+                    <tr>
+                        <td>User - City</td>
+                        <td></td>
+                        <td style="text-align: center;">X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Trip - User</td>
+                        <td></td>
+                        <td style="text-align: center;">X</td>
+                        <td style="text-align: center;">X</td>
+                    </tr>
+                    <tr>
+                        <td>Trip - City</td>
+                        <td></td>
+                        <td style="text-align: center;">X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>City - Department</td>
+                        <td></td>
+                        <td style="text-align: center;">X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Department - Region</td>
+                        <td></td>
+                        <td style="text-align: center;">X</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </section>
+
+            <section>
+                <h2>Schéma d'architecture</h2>
+            </section>
+            <section>
                 <img src="images/architecture.png">
             </section>
+
             <section data-markdown>
                 <textarea data-template>
                     ### Client /Serveur : le front
 
-                    Le service est accessible aux utilisateurs via un site web, dont les spécifités sont les suivantes :
                     - Single Page Application
                     - Développé en Typescript / Angular v8.0
                     - Mise en forme générale assurée avec Bootstrap v4.4.3
