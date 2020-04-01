@@ -166,7 +166,7 @@
                 <p><br/></p>
                 <ul>
                     <li>Exploitation : <a>PostgreSQL v12.0</a></li>
-                    <li>Tests unitaire : <a>H2 Database</a></li>
+                    <li>Tests unitaire : <a>H2 Database ????</a></li>
                 </ul>
                 <p></p>
             </section>
@@ -257,8 +257,37 @@
             <section>
                 <h2>Présentation UI</h2>
                 <p><a href="#" class="navigate-down">
-                    <img width="919" height="500" data-src="images/profil.png" alt="Down arrow">
+                    <img width="919" height="500" data-src="images/trips-list.png" alt="Down arrow">
                 </a></p>
+            </section>
+
+            <section>
+                <h2>Routing</h2>
+                <p><a href="#" class="navigate-down">
+                    <img width="327" height="500" data-src="images/routing.png" alt="Down arrow">
+                </a></p>
+            </section>
+
+            <section>
+                <h2>Page avec filtrage</h2>
+                <pre width="919" height="500" ><code  class="hljs" data-trim data-line-numbers="4,4-7">
+                <div class="container-fluid">
+                    <!-- Breadcrumb -->
+                    <app-breadcrumb [title]="title" [level1]="level1" [level2]="level2" ></app-breadcrumb>
+                    <!-- Trips filter form-->
+                    <div [style.display]="isFormListVisible ? 'block' : 'none'">
+                        <app-trips-manager-filter-form></app-trips-manager-filter-form>
+                    </div>
+                    <!-- Trip list -->
+                    <div [style.display]="isFormListVisible ? 'block' : 'none'">
+                        <app-trips-list [trip]="trip" (onNotifyShowTrip)="notifyShowTrip($event)"></app-trips-list>
+                    </div>
+                    <!-- Trip details -->
+                    <div [style.display]="isTripVisible ? 'block' : 'none'">
+                        <app-trip-details [trip]="trip" (onNotifyHideTrip)="notifyHideTrip($event)"></app-trip-details>
+                    </div>
+                </div>
+</code></pre>
             </section>
             <section>
                 <h2>Composant personnalisé de pagination</h2><img width="657" height="183"
@@ -269,8 +298,7 @@
             <section>
                 <h2>Structure </h2>
                 <p>
-                <pre><code class="hljs" data-trim data-line-numbers="4,8-9">
- // Pager
+                <pre><code class="hljs" data-trim data-line-numbers="1,13,12-15">
   pager: {
     active: boolean,
     first: number,
@@ -279,9 +307,6 @@
     last: number,
     currentPage: number,
     pages: number,
-    rows: number,
-    offset: number,
-    lastOffset: number,
     size: number,
     views: number[],
     displayedPage: string,
@@ -293,34 +318,57 @@
                 </p>
 
             </section>
-<section>
-            <h2>Gestion de l'événement OnChange </h2>
-            <p>
-            <pre><code class="hljs" data-trim data-line-numbers="4,8-9">
+
+            <section>
+                <h2>Dans le composant list </h2>
+                <pre><code class="hljs htmlbars" data-trim >
+                <!-- Paginator -->
+                <app-my-paginator
+
+                        [pagerParams]="pager"
+
+                        (notifyPagination)="onPaginate($event)">
+                </app-my-paginator>
+	</code></pre>
+            </section>
+
+            <section>
+                <h2>Evénement du paginator vers la liste</h2>
+                <pre><code class="typescript" data-trim data-line-numbers="1,13,12-15">
+            /**
+            * Propagate a page event to the parent component
+            *
+            * @param pageNumber
+            */
+            paginate(pageNumber: number) {
+            pageNumber--;
+            this.notifyPagination.emit(pageNumber);
+            }
+	</code></pre>
+
+
+            </section>
+           <section>
+                <h2>Evénement de la liste vers paginator </h2>
+                <p>
+                <pre width="900" ><code class="hljs" data-trim data-line-numbers="5,12"  >
   /**
    * Get pager changes from tge parent component
-   *
    * @param change
    */
   ngOnChanges(change: SimpleChange) {
-    // Get changes
     let currentPager: PagerParams;
-
     currentPager = {
       currentPage : change['pagerParams'].currentValue.currentPage,
-      totalPages : change['pagerParams'].currentValue.totalPages,
-      pageTotalElements : change['pagerParams'].currentValue.pageTotalElements,
       totalElements : change['pagerParams'].currentValue.totalElements,
       size : change['pagerParams'].currentValue.size
     }
-
-    // Report new values in the pager
     this.refreshPaginator(currentPager.currentPage, currentPager.pageTotalElements, currentPager.totalPages, currentPager.totalElements, currentPager.size );
   }
 </code></pre>
-            </p>
+                </p>
 
-        </section>
+            </section>
 
 
             <section>
